@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+
+{% block title %} homePage {% endblock %}
+
+{% block content %}
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="row d-flex justify-content-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card rounded-3">
+                    <h4 class="text-center my-3 pb-3">Todo App</h4>
+                    <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                        <div class="col-12">
+                            <form action="" method="get">
+                                {{ form }}
+                                <input type="submit" class="btn btn-warning" value="Search">
+                            </form>
+
+                            <button type="submit" class="btn btn-info">
+                                <a href="{% url 'home:create_task' %}"
+                                   style="text-decoration: none; color: #000000;">
+                                    Create Task
+                                </a>
+                            </button>
+                        </div>
+                    </form>
+                    <div style="text-align: center;">
+                        <p>
+                            {% if search != None %} your Search :
+                                {{ search }}
+                            {% endif %}
+                        </p>
+                    </div>
+                    <table class="table mb-3">
+                        <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Todo item</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        {% for todo in todos %}
+                            <tbody>
+                            <tr>
+                                <th scope="row">{{ todo.id }}</th>
+                                <td>{{ todo.title }}</td>
+                                <td>
+                                    <button type="submit" class="btn btn-secondary">
+                                        <a href="{{ todo.get_absolute_url_detail }}"
+                                           style="text-decoration: none; color: #000000;">
+                                            Detail Task
+                                        </a>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

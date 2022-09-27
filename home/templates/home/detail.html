@@ -1,0 +1,28 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+    <button type="submit" class="btn btn-danger" style="float: right; margin: 5px">
+        <a href="{{ todo.get_absolute_url_delete }}"
+           style="text-decoration: none; color: #000000;">
+            Delete
+        </a>
+    </button>
+
+    <button type="submit" class="btn btn-info" style="float: right; margin: 5px">
+        <a href="{{ todo.get_absolute_url_update }}"
+           style="text-decoration: none; color: #000000;">
+            Update Task
+        </a>
+    </button>
+
+    <form action="">
+        <strong>{{ todo.title|upper }}</strong>
+        <br>
+        <small> {{ todo.created }}</small>
+        <hr>
+        <small> {{ todo.updated }}</small>
+        <hr>
+        {{ todo.body }}
+    </form>
+
+{% endblock %}

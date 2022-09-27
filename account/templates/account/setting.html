@@ -1,0 +1,19 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+    <p>
+        <a style="text-decoration: none; color: #000000;" href="{% url 'account:reset_password' %}">
+            Change password
+        </a>
+    </p>
+    <p>
+        <a style="text-decoration: none; color: #000000;" href="{% url 'account:email_reset' %}">
+            Change Email
+        </a>
+    </p>
+    <p>
+        <a style="text-decoration: none; color: #000000;" href="{% url 'account:username_reset' %}">
+            Change Username
+        </a>
+    </p>
+{% endblock %}

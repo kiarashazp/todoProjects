@@ -1,0 +1,11 @@
+{% extends 'basic.html' %}
+
+{% block title %} email reset {% endblock %}
+
+{% block content %}
+    <form action="" method="post" class="col-md-6" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Change">
+    </form>
+{% endblock %}
